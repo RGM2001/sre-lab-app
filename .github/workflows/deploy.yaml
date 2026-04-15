@@ -80,7 +80,7 @@ jobs:
       - name: 🔄 Скачиваем GitOps репозиторий инфры
         uses: actions/checkout@v4
         with:
-          repository: RGM2001/sre_lab_manifest
+          repository: rgm2001/sre_lab_manifest
           token: ${{ secrets.GITOPS_TOKEN }}
           path: gitops-repo
 
