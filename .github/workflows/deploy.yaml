@@ -37,8 +37,11 @@ jobs:
 
       - name: ✍️ Обновляем версию в кластере
         run: |
-          cd gitops-repo/overlays/dev
-          sed -i "s|image: .*|image: ghcr.io/rgm2001/sre-lab-app:${{ github.sha }}|g" *.yaml
+          # ИДЕМ В ПРАВИЛЬНУЮ ПАПКУ:
+          cd gitops-repo/base
+          
+          # МЕНЯЕМ ОБРАЗ ИМЕННО В deployment.yaml:
+          sed -i "s|image: .*|image: ghcr.io/rgm2001/sre-lab-app:${{ github.sha }}|g" deployment.yaml
           
           git config user.name "SRE CI/CD Bot"
           git config user.email "bot@srelab.local"
